@@ -4,8 +4,6 @@ A cross-platform, real-time polling app built with **Flutter** and a modern Go b
 
 ---
 
-![poll_app banner](docs/banner.png) <!-- Add your screenshot/banner here -->
-
 ## 🚀 Features
 
 - **Real-time voting:** Live poll results update instantly via WebSockets
