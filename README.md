@@ -84,12 +84,6 @@ flutter pub get
 
 - See `/backend` (coming soon) for Go API setup
 
-## 🧪 Demo
-
-- Try the real-time voting and see charts update instantly
-- Use the admin dashboard to manage polls
-- Test on any device or browser
-
 ## 📦 Folder Structure
 
 ```
