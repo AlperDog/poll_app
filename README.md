@@ -37,14 +37,6 @@ graph TD;
 | Auth     | JWT, flutter_secure_storage            |
 | Charts   | fl_chart, charts_flutter               |
 
-## 📱 Screenshots
-
-> _Add your screenshots here!_
-
-| Splash/Auth          | Poll List          | Poll Detail          | Live Results          | Create Poll          | Admin Dashboard     |
-| -------------------- | ------------------ | -------------------- | --------------------- | -------------------- | ------------------- |
-| ![](docs/splash.png) | ![](docs/list.png) | ![](docs/detail.png) | ![](docs/results.png) | ![](docs/create.png) | ![](docs/admin.png) |
-
 ## 🧭 User Flow
 
 ```mermaid
