@@ -2,8 +2,6 @@
 
 A cross-platform, real-time polling app built with **Flutter** and a modern Go backend. Instantly create, join, and visualize live polls with beautiful charts and WebSocket-powered updates. Designed as a flagship project for my portfolio: [AlperDog/portfolio](https://github.com/AlperDog/portfolio)
 
----
-
 ## 🚀 Features
 
 - **Real-time voting:** Live poll results update instantly via WebSockets
