@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CreatePollScreen extends StatefulWidget {
   const CreatePollScreen({super.key, required this.onCreate});
 
-  final void Function(String title, String question, List<String> options, bool multiChoice) onCreate;
+  final void Function(String title, String question, List<String> options, bool multiChoice, {bool isDraft}) onCreate;
 
   @override
   State<CreatePollScreen> createState() => _CreatePollScreenState();
@@ -58,12 +58,36 @@ class _CreatePollScreenState extends State<CreatePollScreen> {
               title: const Text('Allow multiple choices'),
             ),
             const SizedBox(height: 24),
-            ElevatedButton(
-              onPressed: () {
-                final options = optionControllers.map((c) => c.text).where((t) => t.isNotEmpty).toList();
-                widget.onCreate(titleController.text, questionController.text, options, multiChoice);
-              },
-              child: const Text('Create'),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    final options = optionControllers.map((c) => c.text).where((t) => t.isNotEmpty).toList();
+                    widget.onCreate(
+                      titleController.text,
+                      questionController.text,
+                      options,
+                      multiChoice,
+                      isDraft: true,
+                    );
+                  },
+                  child: const Text('Taslak Kaydet'),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    final options = optionControllers.map((c) => c.text).where((t) => t.isNotEmpty).toList();
+                    widget.onCreate(
+                      titleController.text,
+                      questionController.text,
+                      options,
+                      multiChoice,
+                      isDraft: false,
+                    );
+                  },
+                  child: const Text('Yayınla'),
+                ),
+              ],
             ),
           ],
         ),

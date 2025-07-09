@@ -4,6 +4,7 @@ import 'package:uuid/uuid.dart';
 import '../models/poll.dart';
 import '../models/vote.dart';
 import '../providers/polls_provider.dart';
+import '../services/vote_service.dart';
 
 class PollDetailScreen extends ConsumerStatefulWidget {
   const PollDetailScreen({super.key, required this.pollId, required this.onVote});
@@ -133,7 +134,8 @@ class _PollDetailScreenState extends ConsumerState<PollDetailScreen> {
     );
   }
 
-  void _submitVote(Poll poll) {
+  void _submitVote(Poll poll) async {
+    final voteService = VoteService();
     // Create a new vote
     final currentUser = ref.read(currentUserProvider);
     final newVote = Vote(
@@ -145,9 +147,19 @@ class _PollDetailScreenState extends ConsumerState<PollDetailScreen> {
       createdAt: DateTime.now(),
     );
 
+    // Simüle edilmiş API isteği
+    final success = await voteService.submitVote(newVote);
+    if (!success) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Vote failed! Please try again.')),
+        );
+      }
+      return;
+    }
+
     // Add vote to provider
     ref.read(votesProvider.notifier).update((votes) => [...votes, newVote]);
-    
     // Update poll vote counts
     final updatedOptions = poll.options.asMap().entries.map((entry) {
       final index = entry.key;
